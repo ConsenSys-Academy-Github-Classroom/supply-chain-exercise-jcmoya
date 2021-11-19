@@ -131,7 +131,7 @@ contract SupplyChain {
   function buyItem(uint sku) forSale (sku) paidEnough(items[sku].price) checkValue(sku) public payable{
    
       items[sku].buyer = msg.sender;
-
+  items[sku].seller.transfer(items[sku].price); 
     items[sku].state = State.Sold;
     emit LogSold(sku);
   }
